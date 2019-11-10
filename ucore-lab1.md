@@ -1,4 +1,5 @@
 # ucore-lab1 启动操作系统（2019.11.5）
+WA062 
 ## 练习一 
 **[练习1.1] 操作系统镜像文件 ucore.img 是如何一步一步生成的?(需要比较详细地解释 Makefile 中 每一条相关命令和命令参数的含义,以及说明命令导致的结果)**
     
@@ -100,7 +101,7 @@ dd if=bin/kernel of=bin/ucore.img seek=1 conv=notrunc
 
 首先停在了 `0xfff0` 位置，`cs=0xf000`，`eip=0xfff0`，如下图所示：
 
-![](https://imgchr.com/i/MKpLZT)
+[![MKpLZT.png](https://s2.ax1x.com/2019/11/10/MKpLZT.png)](https://imgchr.com/i/MKpLZT)
 
 **[练习2.2] 在初始化位置0x7c00 设置实地址断点,测试断点正常。**
 
@@ -108,7 +109,7 @@ dd if=bin/kernel of=bin/ucore.img seek=1 conv=notrunc
 
 使用命令 `b *0x7c00` 设置断点，结果如下：
 
-![](pic/7c00.png)
+[![MKClcR.png](https://s2.ax1x.com/2019/11/10/MKClcR.png)](https://imgchr.com/i/MKClcR)
 
 可以看到 `0x7c00` 之后一串的汇编代码，与 `boot/bootasm.S` 的16行到23行一致，也与 `obj/bootblock.asm`  中 `code16` 代码段一致。
 
